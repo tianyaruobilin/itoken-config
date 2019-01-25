@@ -1,0 +1,50 @@
+# mybatis 配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.itoken.itokenserviceadmin.domain
+  mapper-locations: classpath:mapper/*.xml
+
+# spring 配置
+spring:
+  application:
+    name: itoken-service-admin
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:8084
+#  zipkin:
+#    base-url: http://localhost:9411
+  datasource:
+    password: 123456
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.172:3307/itoken-service-admin?useUnicode=true&character_set_server=utf8mb4&useSSL=false
+#    druid:
+#    url: jdbc:sqlserver://localhost:1433; DatabaseName=how2java
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    username: admin
+#    password: admin
+#      initial-size: 1
+#      min-idle: 1
+#      max-active: 20
+#      test-on-borrow: true
+
+# 服务器端口配置
+server:
+  port: 9000
+
+eureka:
+  client:
+    service-url:
+      defalutZone: http://server1:8761/eureka/
+
+# admin健康监控开启  ...这不是服务器端的配置吗？
+#management:
+#  endpoint:
+#    health:
+#      show-details: always
+#  endpoints:
+#    web:
+#      exposure:
+#        exclude: health,info
